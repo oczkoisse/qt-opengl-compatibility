@@ -75,5 +75,5 @@ Tested on NVidia GTX1070, the following holds (with the caveat that "doesn't wor
 - PyQt5 and PyQt6 don't work with Qt's OpenGL wrappers (versionFunctions() and the like).
 - PyQt5 and PyQt6 work with PyOpenGL, so that may be the only option.
 - PySide2 doesn't work with Qt's OpenGL wrappers, but does work with PyOpenGL.
-- PySide6 works both Qt's OpenGL wrappers and PyOpenGL.
+- PySide6 works with both Qt's OpenGL wrappers and PyOpenGL.
   - A downside of Qt's OpenGL wrappers is that it doesn't come with OpenGL constants and you either need to add those in manually or use PyOpenGL for just the constant values.
