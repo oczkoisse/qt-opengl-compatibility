@@ -70,11 +70,11 @@ TEST_OPENGL_API
 
 ## Notes on results
 
-Tested on NVidia GTX1070, the following holds (with the caveat that "doesn't work" may be because of a bug in my code or simply that I don't know of a way to make it work):
+The following holds after testing on NVidia GTX1070 with the caveat that "doesn't work" may be because of a bug in my code or that I don't know of a way to make it work yet:
 
 - PyQt5 and PyQt6 don't work with Qt's OpenGL wrappers (`versionFunctions()` and the like).
 - PyQt5 and PyQt6 work with PyOpenGL, so that may be the only option.
 - PySide2 doesn't work with Qt's OpenGL wrappers, but does work with PyOpenGL.
 - PySide6 works with both Qt's OpenGL wrappers and PyOpenGL.
-  - A downside of Qt's OpenGL wrappers is that it doesn't come with OpenGL constants and you either need to add those in manually or use PyOpenGL for just the constant values
-  - If a function bound by Qt's versionFunctions() needs a void pointer (e.g. `glVertexAttribPointer`), you must use `VoidPtr` class defined by `shiboken` package (comes with PySide). In contrast, PyOpenGL's wrapper for `glVertexAttribPointer` prefers `ctypes.c_void_p` (you can also use PyOpenGL's alias `GLvoidp`)
+  - Qt's OpenGL wrappers don't come with OpenGL constants. So, you either need to add those in manually or use PyOpenGL for just the constant values.
+  - If a function bound by Qt's versionFunctions() needs a void pointer (e.g. `glVertexAttribPointer`), you must use `VoidPtr` class defined by `shiboken` package (comes with PySide). In contrast, PyOpenGL's wrapper for `glVertexAttribPointer` prefers `ctypes.c_void_p` (you can also use PyOpenGL's alias `GLvoidp`).
