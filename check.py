@@ -269,6 +269,7 @@ class TriangleWidget(QOpenGLWidget):
         self._program.addShaderFromSourceCode(QOpenGLShader.ShaderTypeBit.Vertex, self._vs)
         self._program.addShaderFromSourceCode(QOpenGLShader.ShaderTypeBit.Fragment, self._fs)
         self._program.bindAttributeLocation("posIn", 0)
+        self._program.bindAttributeLocation("colorIn", 1)
         self._program.link()
 
     def _compile_gl_pyopengl(self):
@@ -283,6 +284,10 @@ class TriangleWidget(QOpenGLWidget):
         self._program = self._gl.glCreateProgram()
         self._gl.glAttachShader(self._program, vertexShader)
         self._gl.glAttachShader(self._program, fragmentShader)
+
+        self._gl.glBindAttribLocation(self._program, 0, "posIn")
+        self._gl.glBindAttribLocation(self._program, 1, "colorIn")
+
         self._gl.glLinkProgram(self._program)
 
         self._gl.glDeleteShader(vertexShader)
