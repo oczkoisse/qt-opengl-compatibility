@@ -73,8 +73,6 @@ _gl_api = _gl_api.strip().lower()
 
 if _gl_api == 'pyopengl':
     from OpenGL import GL
-    # Need ctypes to create C-type arrays
-    import ctypes
 elif _gl_api == 'qt':
     # Only needed for figuring out size of float
     # Could use value 4 too
@@ -246,7 +244,7 @@ class TriangleWidget(QOpenGLWidget):
         self._vtx_buffer = self._gl.glGenBuffers(1)
         self._gl.glBindBuffer(self._gl.GL_ARRAY_BUFFER, self._vtx_buffer)
 
-        vtxData = (ctypes.c_float * len(self._vertices))(*self._vertices)
+        vtxData = (self._gl.GLfloat * len(self._vertices))(*self._vertices)
 
         self._gl.glBufferData(self._gl.GL_ARRAY_BUFFER, self._gl.sizeof(vtxData), vtxData, self._gl.GL_STATIC_DRAW)
 
