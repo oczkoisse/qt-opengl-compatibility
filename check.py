@@ -274,11 +274,11 @@ class TriangleWidget(QOpenGLWidget):
 
     def _compile_gl_pyopengl(self):
         vertexShader = self._gl.glCreateShader(self._gl.GL_VERTEX_SHADER)
-        self._gl.glShaderSource(vertexShader, self._vs, [ self._vs.encode('utf-8') ])
+        self._gl.glShaderSource(vertexShader, self._vs.encode('utf-8'))
         self._gl.glCompileShader(vertexShader)
 
         fragmentShader = self._gl.glCreateShader(self._gl.GL_FRAGMENT_SHADER)
-        self._gl.glShaderSource(fragmentShader, self._fs, [ self._fs.encode('utf-8') ])
+        self._gl.glShaderSource(fragmentShader, self._fs.encode('utf-8'))
         self._gl.glCompileShader(fragmentShader)
 
         self._program = self._gl.glCreateProgram()
