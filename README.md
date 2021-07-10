@@ -22,8 +22,8 @@ pip install tox
 The `tox` environments are named as follows:
 
 ```
-# Python3.9 - Qt binding to use - Qt/PyOpenGL - GL major version - GL minor version
-py39-{PyQt5,PyQt6,PySide2,PySide6}-gl{qt,py}-glmaj{3,4}-glmin{0,1,2,3,4,5}
+# Python3.8 - Qt binding to use - Qt/PyOpenGL - GL major version - GL minor version
+py38-{PyQt5,PyQt6,PySide2,PySide6}-gl{qt,py}-glmaj{3,4}-glmin{0,1,2,3,4,5}
 ```
 
 To run different scenarios:
@@ -32,7 +32,7 @@ To run different scenarios:
 # to test all possible scenarios
 tox
 # to test only PyQt5 with Qt's GL API for OpenGL 3.0 - 3.3
-tox -e 'py39-PyQt5-glqt-glmaj3-glmin{0,1,2,3}'
+tox -e 'py38-PyQt5-glqt-glmaj3-glmin{0,1,2,3}'
 ```
 
 The script `check.py` tries to draw a triangle in OpenGL. The resulting window
